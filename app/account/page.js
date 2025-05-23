@@ -1,18 +1,11 @@
 export const metadata = {
-  title: "Account Page",
+  title: "Guest area",
 };
 
-const prom = new Promise((res, rej) => {
-  setTimeout(() => {
-    res("resolved");
-  }, 20000);
-});
-
-const Page = async () => {
-  const data = await prom;
-  console.log({ data });
-
-  return <>{data ? <h1>Account</h1> : ""}</>;
-};
-
-export default Page;
+export default function Page() {
+  return (
+    <h2 className="font-semibold text-2xl text-accent-400 mb-7">
+      Welcome, Jonas
+    </h2>
+  );
+}
