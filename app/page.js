@@ -1,6 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
 import bg from "@/public/bg.png";
+import Container from "./_components/RSC/Container";
+
+export const revalidate = 0;
 
 export default function Page() {
   return (
@@ -13,8 +16,8 @@ export default function Page() {
         className="object-cover object-top"
         alt="Mountains and forests with two cabins"
       />
-
       <div className="relative z-10 text-center">
+      <Container/>
         <h1 className="text-8xl text-primary-50 mb-10 tracking-tight font-normal">
           Welcome to paradise.
         </h1>

@@ -1,11 +1,12 @@
 import { Suspense } from "react";
 import CabinsList from "./components/CabinsList";
+import Filter from "../_components/Filter";
 
 export const metadata = {
   title: "Cabins",
 };
 
-export default function Page() {
+export default function Page({ searchParams }) {
   return (
     <div>
       <h1 className="text-4xl mb-5 text-accent-400 font-medium">
@@ -20,8 +21,13 @@ export default function Page() {
         Welcome to paradise.
       </p>
 
-      <Suspense fallback={<h1>Cabins Loading...</h1>}>
-        <CabinsList />
+      <Filter />
+
+      <Suspense
+        fallback={<h1>Cabins Loading...</h1>}
+        key={searchParams.capacity}
+      >
+        <CabinsList filter={searchParams} />
       </Suspense>
     </div>
   );

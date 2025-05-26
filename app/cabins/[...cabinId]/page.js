@@ -1,4 +1,4 @@
-import { delayData, getCabin } from "@/app/utills";
+import { cabinsMock, delayData, getCabin } from "@/app/utills";
 import { EyeSlashIcon, MapPinIcon, UsersIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 
@@ -16,9 +16,17 @@ export function generateMetadata({ params }) {
   };
 }
 
-export default async function Page({ params }) {
+export function generateStaticParams() {
+  const cabinIds = cabinsMock.map((cabin) => ({
+    cabinId: [cabin.name],
+  }));
 
-  
+  console.log({ cabinIds });
+
+  return cabinIds;
+}
+
+export default async function Page({ params }) {
   const { name, maxCapacity, image, description } = await delayData(
     getCabin(params.cabinId[0]),
     2000
