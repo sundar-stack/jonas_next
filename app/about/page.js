@@ -4,7 +4,7 @@ import image2 from "@/public/about-2.jpg";
 import { cabinsMock } from "../utills";
 
 export const metadata = {
-  title: "About",
+  title: "About Page Next Js",
 };
 
 export const revalidate = 60;
